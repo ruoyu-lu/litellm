@@ -1,3 +1,10 @@
+> [!NOTE]
+> This is Ruoyu Lu's fork of [BerriAI/litellm](https://github.com/BerriAI/litellm), maintained for a focused MCP health-check contribution. The upstream project and documentation below belong to LiteLLM.
+>
+> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**open; not merged**, checked 23 September 2026). The change makes health checks probe an OpenAPI-backed server's specification instead of opening an MCP session against its REST base URL. See the PR for tests, review comments, and current status.
+
+---
+
 <h1 align="center">
         🚅 LiteLLM
     </h1>
