@@ -1,7 +1,7 @@
 > [!NOTE]
 > This is Ruoyu Lu's fork of [BerriAI/litellm](https://github.com/BerriAI/litellm), maintained for a focused MCP health-check contribution. The upstream project and documentation below belong to LiteLLM.
 >
-> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**open; not merged**, checked 24 September 2026). The change makes health checks probe an OpenAPI-backed server's specification instead of opening an MCP session against its REST base URL. See the PR for tests, review comments, and current status.
+> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**open; not merged**, checked 24 September 2026). Upstream independently merged [PR #40665](https://github.com/BerriAI/litellm/pull/40665) for the same health-check problem. This fork is a proposed contribution, not a merged upstream change.
 
 ## My MCP health-check contribution
 
@@ -34,7 +34,7 @@ uv run pytest tests/test_litellm/proxy/_experimental/mcp_server/test_openapi_to_
 
 ### Tests and CI
 
-The [upstream PR checks](https://github.com/BerriAI/litellm/pull/40122/checks) are the live CI signal for this contribution. The PR remains open and requires upstream review; this fork is not an upstream release
+The [PR checks](https://github.com/BerriAI/litellm/pull/40122/checks) show the current test status. This proposed branch overlaps an already merged upstream fix and should not be treated as an accepted LiteLLM contribution
 
 ---
 
