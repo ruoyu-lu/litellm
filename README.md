@@ -1,7 +1,7 @@
 > [!NOTE]
 > This is Ruoyu Lu's fork of [BerriAI/litellm](https://github.com/BerriAI/litellm), maintained for a focused MCP health-check contribution. The upstream project and documentation below belong to LiteLLM.
 >
-> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**open; not merged**, checked 24 September 2026). Upstream independently merged [PR #40665](https://github.com/BerriAI/litellm/pull/40665) for the same health-check problem. This fork is a proposed contribution, not a merged upstream change.
+> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**closed; not merged**, 24 September 2026). Upstream independently merged [PR #40665](https://github.com/BerriAI/litellm/pull/40665) for the same health-check problem. This fork records a superseded contribution, not a merged upstream change.
 
 ## My MCP health-check contribution
 
