@@ -1,7 +1,40 @@
 > [!NOTE]
 > This is Ruoyu Lu's fork of [BerriAI/litellm](https://github.com/BerriAI/litellm), maintained for a focused MCP health-check contribution. The upstream project and documentation below belong to LiteLLM.
 >
-> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**open; not merged**, checked 23 September 2026). The change makes health checks probe an OpenAPI-backed server's specification instead of opening an MCP session against its REST base URL. See the PR for tests, review comments, and current status.
+> **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**open; not merged**, checked 24 September 2026). The change makes health checks probe an OpenAPI-backed server's specification instead of opening an MCP session against its REST base URL. See the PR for tests, review comments, and current status.
+
+## My MCP health-check contribution
+
+### Why I contributed
+
+OpenAPI-backed MCP servers expose tools from a REST specification. The old health check tried to open an MCP session against the REST base URL, so working servers could appear unhealthy. I changed the probe to load the configured specification, while preserving the skip for per-user authentication
+
+### Architecture
+
+```mermaid
+flowchart LR
+    Check[Health check] --> Auth{Per-user auth?}
+    Auth -- Yes --> Unknown[Status unknown]
+    Auth -- No --> Spec{OpenAPI spec configured?}
+    Spec -- Yes --> Loader[Load specification]
+    Loader --> Remote[Bounded HTTP fetch]
+    Loader --> Local[Worker-thread local read]
+    Spec -- No --> Session[MCP session probe]
+    Remote --> Status[Healthy or generic error]
+    Local --> Status
+    Session --> Status
+```
+
+### How to run the focused tests
+
+```sh
+uv run pytest tests/test_litellm/proxy/_experimental/mcp_server/test_mcp_server_manager.py -k health_check_server_openapi -q
+uv run pytest tests/test_litellm/proxy/_experimental/mcp_server/test_openapi_to_mcp_generator.py -k local_spec_read_respects_async_timeout -q
+```
+
+### Tests and CI
+
+The [upstream PR checks](https://github.com/BerriAI/litellm/pull/40122/checks) are the live CI signal for this contribution. The PR remains open and requires upstream review; this fork is not an upstream release
 
 ---
 
