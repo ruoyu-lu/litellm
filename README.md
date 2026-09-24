@@ -1,13 +1,15 @@
 > [!NOTE]
 > This is Ruoyu Lu's fork of [BerriAI/litellm](https://github.com/BerriAI/litellm), maintained for a focused MCP health-check contribution. The upstream project and documentation below belong to LiteLLM.
 >
+> ![PR closed, not merged](https://img.shields.io/badge/PR-closed%2C%20not%20merged-6b7280)
+>
 > **My contribution:** [fix(mcp): probe OpenAPI-backed servers by their spec in health checks — PR #40122](https://github.com/BerriAI/litellm/pull/40122) (**closed; not merged**, 24 September 2026). Upstream independently merged [PR #40665](https://github.com/BerriAI/litellm/pull/40665) for the same health-check problem. This fork records a superseded contribution, not a merged upstream change.
 
 ## My MCP health-check contribution
 
 ### Why I contributed
 
-OpenAPI-backed MCP servers expose tools from a REST specification. The old health check tried to open an MCP session against the REST base URL, so working servers could appear unhealthy. I changed the probe to load the configured specification, while preserving the skip for per-user authentication
+OpenAPI-backed MCP servers expose tools from a REST specification. The old health check tried to open an MCP session against the REST base URL, so working servers could appear unhealthy. I changed the probe to load the configured specification, while preserving the skip for per-user authentication.
 
 ### Architecture
 
@@ -34,7 +36,7 @@ uv run pytest tests/test_litellm/proxy/_experimental/mcp_server/test_openapi_to_
 
 ### Tests and CI
 
-The [PR checks](https://github.com/BerriAI/litellm/pull/40122/checks) show the current test status. This proposed branch overlaps an already merged upstream fix and should not be treated as an accepted LiteLLM contribution
+The [closed PR's checks](https://github.com/BerriAI/litellm/pull/40122/checks) show its CI status; they are not a passing badge. The branch overlaps an already merged upstream fix and should not be treated as an accepted LiteLLM contribution.
 
 ---
 
